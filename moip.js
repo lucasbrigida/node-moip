@@ -151,8 +151,8 @@ function Sender(){
 					var url = 'desenvolvedor.moip.com.br'
   					, path = "/sandbox/ws/alpha/EnviarInstrucao/Unica";
 				}else{
-					var url = 'desenvolvedor.moip.com.br'
-  					, path = "/sandbox/ws/alpha/EnviarInstrucao/Unica";
+					var url = 'www.moip.com.br'
+  					, path = "/ws/alpha/EnviarInstrucao/Unica";
 				}
 
 				self.sendRaw({
