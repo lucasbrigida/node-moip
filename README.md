@@ -6,48 +6,47 @@ O módulo provê o envio de formulários de cobrança, utilizando a interface XM
 Como usar
 ---------
 
-<code>
-var moip = require("moip");\
-var payment = {\
-  token: "01010101010101010101010101010101",\
-  appkey: "ABABABABABABABABABABABABABABABABABABABAB",\
-  mode: "identification",\
-  environment: "test",\
-  xml: "<EnviarInstrucao>\
-  <InstrucaoUnica>\
-    <Razao>Razao da Cobranca</Razao>\
-    <Valores>\
-      <Valor moeda='BRL'>15.1</Valor>\
-    </Valores>\
-    <Comissoes>\
-      <Comissionamento>\
-        <Razao>Razao da Comissao</Razao>\
-        <Comissionado>\
-          <LoginMoIP>loginmoip</LoginMoIP>\
-        </Comissionado>\
-        <ValorPercentual>91.3</ValorPercentual>\
-      </Comissionamento>\
-    </Comissoes>\
-    <FormasPagamento>\
-      <FormaPagamento>CartaoCredito</FormaPagamento>\
-      <FormaPagamento>CartaoDebito</FormaPagamento>\
-    </FormasPagamento>\
-    <Pagador>\
-      <Nome>nome do comprador</Nome>\
-      <Email>emailDoComprador@email.com</Email>\
-      <IdPagador>Um ID Gerado por voce</IdPagador>\
-    </Pagador>\
-    <URLNotificacao>http://suaUrl/transactions/notification</URLNotificacao>\
-    <URLRetorno>http://suaUrl/transactions</URLRetorno>\
-  </InstrucaoUnica>\
-</EnviarInstrucao>"
-};
+    var moip = require("moip");\
+    var payment = {\
+      token: "01010101010101010101010101010101",\
+      appkey: "ABABABABABABABABABABABABABABABABABABABAB",\
+      mode: "identification",\
+      environment: "test",\
+      xml: "<EnviarInstrucao>\
+      <InstrucaoUnica>\
+        <Razao>Razao da Cobranca</Razao>\
+        <Valores>\
+          <Valor moeda='BRL'>15.1</Valor>\
+        </Valores>\
+        <Comissoes>\
+          <Comissionamento>\
+            <Razao>Razao da Comissao</Razao>\
+            <Comissionado>\
+              <LoginMoIP>loginmoip</LoginMoIP>\
+            </Comissionado>\
+            <ValorPercentual>91.3</ValorPercentual>\
+          </Comissionamento>\
+        </Comissoes>\
+        <FormasPagamento>\
+          <FormaPagamento>CartaoCredito</FormaPagamento>\
+          <FormaPagamento>CartaoDebito</FormaPagamento>\
+        </FormasPagamento>\
+        <Pagador>\
+          <Nome>nome do comprador</Nome>\
+          <Email>emailDoComprador@email.com</Email>\
+          <IdPagador>Um ID Gerado por voce</IdPagador>\
+        </Pagador>\
+        <URLNotificacao>http://suaUrl/transactions/notification</URLNotificacao>\
+        <URLRetorno>http://suaUrl/transactions</URLRetorno>\
+      </InstrucaoUnica>\
+    </EnviarInstrucao>"
+    };
 
-Moip.send(payment, function(res){ 
-  console.log(res);
-});
+    Moip.send(payment, function(res){ 
+      console.log(res);
+    });
 
-</code>
+
 
 Parâmetros
 ----------
