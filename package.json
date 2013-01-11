@@ -1,0 +1,20 @@
+{
+  "name": "node-moip",
+  "version": "0.0.1",
+  "description": "Módulo de Integração com o Moip / Module Integration with Moip",
+  "main": "moip.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lucasbrigida/node-moip.git"
+  },
+  "keywords": [
+    "moip",
+    "payment",
+    "service"
+  ],
+  "author": "Lucas Pereira Brigida",
+  "license": "BSD"
+}
