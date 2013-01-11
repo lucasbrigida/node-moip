@@ -16,5 +16,9 @@
     "service"
   ],
   "author": "Lucas Pereira Brigida",
-  "license": "BSD"
+  "license": "BSD",
+  "dependencies": {
+    "xml2js": "~0.2.2",
+    "data2xml": "~0.8.0"
+  }
 }
