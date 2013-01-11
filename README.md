@@ -6,12 +6,12 @@ O módulo provê o envio de formulários de cobrança, utilizando a interface XM
 Como usar
 ---------
 
-    var moip = require("moip");\
-    var payment = {\
-      token: "01010101010101010101010101010101",\
-      appkey: "ABABABABABABABABABABABABABABABABABABABAB",\
-      mode: "identification",\
-      environment: "test",\
+    var moip = require("moip");
+    var payment = {
+      token: "01010101010101010101010101010101",
+      appkey: "ABABABABABABABABABABABABABABABABABABABAB",
+      mode: "identification",
+      environment: "test",
       xml: "<EnviarInstrucao>\
       <InstrucaoUnica>\
         <Razao>Razao da Cobranca</Razao>\
