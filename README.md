@@ -59,7 +59,7 @@ Como usar (1ª Opção)
 Como Usar (2ª Opção)
 --------------------
 
-		var moip = require("/home/codestack/Projects/Node/express/api.goparty/moip");
+		var moip = require("moip");
 		var data = {
 			InstrucaoUnica : {
 				Razao: "Go Party",
@@ -73,7 +73,7 @@ Como Usar (2ª Opção)
 					Comissionamento: {
 						Razao: "Go Party / 50edce5d5c000001",
 						Comissionado: {
-							LoginMoIP: "grillobright@gmail.com"
+							LoginMoIP: "logindomoipdocomissionado"
 						},
 						ValorPercentual: "91.3"
 					}
@@ -82,8 +82,8 @@ Como Usar (2ª Opção)
 					FormaPagamento: ["CartaoCredito","CartaoDebito"] 
 				},
 				Pagador:{
-					Nome: "lucas",
-					Email: "lucas.carioca@live.com",
+					Nome: "nomedocomprador",
+					Email: "email@live.com",
 					IdPagador: "50ecb0c72000002"
 				},
 				URLNotificacao: "http://localhost:3000/transactions/notification",
