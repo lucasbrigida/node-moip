@@ -8,6 +8,14 @@
  *
 */
 
+/*
+ *	Dependencies
+*/
+
+var xml2js = require('xml2js');
+var data2xml_convert = require('data2xml')();
+
+
 function Moip(){
 	var self = this;
 	this.environment= "test";
@@ -36,33 +44,20 @@ function Payment(payment){
 
 	this.XML = null;
 
-	switch(payment.mode){
-		case 'identification': createIdentificationPayment(); break;
-		default: createBasicPayment(); break;
-	}
-
-	function createBasicPayment(){
+	(function createPayment(){
 		if(payment.xml){ 
 			self.XML = payment.xml;
 			return; 
 		}		
 		
-		//Generate XML (Basic Payment)
-		self.moip_payment = "";
-		self.XML = self.moip_payment;
-	}
+		if(payment.data){
+			//Generate XML (Basic Payment)
+			self.moip_payment = data2xml_convert(payment.data.root,payment.data.body);
+			self.XML = self.moip_payment;
+		}
+		else throw('"data" variable undefined. Use data = json');
 
-	function createIdentificationPayment(){
-		if(payment.xml){ 
-			self.XML = payment.xml;
-			return; 
-		}		
-		
-		//Generate XML (Identification Payment)
-		self.moip_payment = "";
-		self.XML = self.moip_payment;
-
-	}
+	})();
 
 
 	this.validate = function(){
@@ -184,6 +179,7 @@ function Sender(){
 				};
 		*/
 
+
 		var https_options = {
 			host: options.url,
 			path: options.path,
@@ -196,12 +192,18 @@ function Sender(){
 				if(options.callback){
 					if(typeof(options.callback) === 'function'){
 						var _callback = options.callback;
-						_callback(chunck.toString());
+						var parser = new xml2js.Parser();
+						parser.parseString(chunck.toString(), function (err, result) {
+				        _callback(result);
+				    });
 					}
-				}else{				
-					self.response = chunck.toString();				
-					self.received = true;
-					return(self.response);
+				}else{
+					var parser = new xml2js.Parser();
+					parser.parseString(chunck.toString(), function (err, result) {
+			        self.received = true;
+			        self.response = result;
+			    });				
+					return;
 				}
 			});
 		});
@@ -218,3 +220,4 @@ function Sender(){
 exports.Moip = Moip;
 exports.Payment = Payment;
 exports.Sender = Sender;
+

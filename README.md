@@ -8,8 +8,8 @@ Instalar
     npm install node-moip
 
 
-Como usar
----------
+Como usar (1ª Opção)
+--------------------
 
     var moip = require("moip");
     var payment = {
@@ -48,9 +48,65 @@ Como usar
     };
 
     Moip.send(payment, function(res){ 
-      console.log(res);
-    });
+			if(res["ns1:EnviarInstrucaoUnicaResponse"]) console.log(res["ns1:EnviarInstrucaoUnicaResponse"].Resposta); return;
 
+			if(res['ns1:XMLFault']) console.log(res['ns1:XMLFault']);
+			else console.log(res);
+
+		});
+
+
+Como Usar (2ª Opção)
+--------------------
+
+		var moip = require("/home/codestack/Projects/Node/express/api.goparty/moip");
+		var data = {
+			InstrucaoUnica : {
+				Razao: "Go Party",
+				Valores: {
+					Valor: {
+						_attr : { moeda : 'BRL' },
+						_value : '15.1'
+					}
+				},
+				Comissoes: {
+					Comissionamento: {
+						Razao: "Go Party / 50edce5d5c000001",
+						Comissionado: {
+							LoginMoIP: "grillobright@gmail.com"
+						},
+						ValorPercentual: "91.3"
+					}
+				},
+				FormasPagamento: {
+					FormaPagamento: ["CartaoCredito","CartaoDebito"] 
+				},
+				Pagador:{
+					Nome: "lucas",
+					Email: "lucas.carioca@live.com",
+					IdPagador: "50ecb0c72000002"
+				},
+				URLNotificacao: "http://localhost:3000/transactions/notification",
+				URLRetorno: "http://localhost:3000/transactions",
+			}
+		};
+
+		var payment = {
+			token: "01010101010101010101010101010101",
+			appkey: "ABABABABABABABABABABABABABABABABABABABAB",
+			mode: "identification",
+			environment: "test",
+			data: {root:"EnviarInstrucao", body:data }
+		};
+
+		var Moip = new moip.Moip();
+		Moip.send(payment, function(res){ 
+			if(res["ns1:EnviarInstrucaoUnicaResponse"]) console.log(res["ns1:EnviarInstrucaoUnicaResponse"].Resposta); return;
+
+			if(res['ns1:XMLFault']) console.log(res['ns1:XMLFault']);
+			else console.log(res);
+
+		});
 
 
 Parâmetros
