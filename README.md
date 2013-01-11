@@ -7,14 +7,13 @@ Como usar
 ---------
 
 <code>
-var moip = require("moip");
-
-var payment = {
-	token: "01010101010101010101010101010101",
-	appkey: "ABABABABABABABABABABABABABABABABABABABAB",
-	mode: "identification",
-	environment: "test",
-	xml: "<EnviarInstrucao>\
+var moip = require("moip");\
+var payment = {\
+  token: "01010101010101010101010101010101",\
+  appkey: "ABABABABABABABABABABABABABABABABABABABAB",\
+  mode: "identification",\
+  environment: "test",\
+  xml: "<EnviarInstrucao>\
   <InstrucaoUnica>\
     <Razao>Razao da Cobranca</Razao>\
     <Valores>\
