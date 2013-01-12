@@ -188,23 +188,24 @@ function Sender(){
 		};
 
 		var req = https.request(https_options, function(res){
+
 			res.on('data', function(chunck){
-				if(options.callback){
-					if(typeof(options.callback) === 'function'){
-						var _callback = options.callback;
-						var parser = new xml2js.Parser();
-						parser.parseString(chunck.toString(), function (err, result) {
-				        _callback(result);
-				    });
-					}
-				}else{
-					var parser = new xml2js.Parser();
-					parser.parseString(chunck.toString(), function (err, result) {
-			        self.received = true;
-			        self.response = result;
-			    });				
-					return;
-				}
+				var parser = new xml2js.Parser();
+
+				parser.parseString(chunck.toString(), function (err, result) {
+					var Resposta = result["ns1:EnviarInstrucaoUnicaResponse"]['Resposta'][0];
+				  if(options.callback){
+				  	if(typeof(options.callback) === 'function'){
+				  		var _callback = options.callback;
+				  		if(Resposta) _callback(Resposta);
+				  		else _callback(null);
+				  	}
+				  }
+
+					self.received = true;
+	        self.response = Resposta;
+		    
+		    });
 			});
 		});
 
@@ -220,4 +221,3 @@ function Sender(){
 exports.Moip = Moip;
 exports.Payment = Payment;
 exports.Sender = Sender;
-
