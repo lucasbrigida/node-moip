@@ -52,7 +52,7 @@ function Payment(payment){
 		
 		if(payment.data){
 			//Generate XML (Basic Payment)
-			self.moip_payment = data2xml_convert(payment.data.root,payment.data.body);
+			self.moip_payment = data2xml_convert("EnviarInstrucao", payment.data);
 			self.XML = self.moip_payment;
 		}
 		else throw('"data" variable undefined. Use data = json');
