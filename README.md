@@ -114,17 +114,18 @@ Parâmetros
 
 Atenção com os campos token, appkey, mode e environment no JSON.
 
-  - Token, fornecido pela Moip
-  - Appkey, fornecido pela Moip
-  - Mode, modo de transação. (mode='basic' ou mode='integration')
+  - Token, fornecido pela MOIP
+  - Appkey, fornecido pela MOIP
+  - Mode, modo de transação. (mode='basic' ou mode='identification')
   - Environment, modo de ambiente, ambiente de teste ou produção; (environment='test' ou environment='production')
+  - Xml, Formulário em XML puro no formato de String na formatação proposta pela API do MOIP
+  - Data, Um JSON estruturado pelo módulo "[data2xml]", sempre com a raiz do XML identificada como: "{root:"EnviarInstrucao", body:data }"
 
 
 Todo
 ----
 Para a próxima versão adicionar suporte
 
-  - Geração de XML através de JSON
   - Validação dos campos do JSON para gerar o XML 
   - Validar o XML
 
@@ -132,3 +133,4 @@ Para a próxima versão adicionar suporte
 Conheça o [Moip]
 
   [Moip]: http://labs.moip.com.br/playground/
+  [data2xml]: https://npmjs.org/package/data2xml
