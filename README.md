@@ -11,7 +11,7 @@ Instalar
 Como usar (1ª Opção)
 --------------------
 
-    var moip = require("./moip");
+    var moip = require("moip");
     var payment = {
       token: "01010101010101010101010101010101",
       appkey: "ABABABABABABABABABABABABABABABABABABABAB",
@@ -46,16 +46,18 @@ Como usar (1ª Opção)
 
     var Moip = new moip.Moip();
     Moip.send(payment, function(Resposta){ 
-			if(Resposta)
 			console.log(Resposta);
-			console.log("Acesse https://desenvolvedor.moip.com.br/sandbox/Instrucao.do?token=" + Resposta.Token);
+
+			if(Resposta)
+				console.log("Acesse https://desenvolvedor.moip.com.br/sandbox/Instrucao.do?token=" + Resposta.Token);
+
 		});
 
 
 Como Usar (2ª Opção)
 --------------------
 
-		var moip = require("./moip");
+		var moip = require("moip");
 		
 		var payment = {
 		  token: "01010101010101010101010101010101",
@@ -97,9 +99,10 @@ Como Usar (2ª Opção)
 
 		var Moip = new moip.Moip();
 		Moip.send(payment, function(Resposta){ 
-			if(Resposta)
 			console.log(Resposta);
-			console.log("Acesse https://desenvolvedor.moip.com.br/sandbox/Instrucao.do?token=" + Resposta.Token);
+
+			if(Resposta)
+				console.log("Acesse https://desenvolvedor.moip.com.br/sandbox/Instrucao.do?token=" + Resposta.Token);
 		});
 
 
@@ -114,7 +117,7 @@ Atenção com os campos token, appkey, mode e environment no JSON.
   - Mode, modo de transação. (mode='basic' ou mode='identification')
   - Environment, modo de ambiente, ambiente de teste ou produção; (environment='test' ou environment='production')
   - Xml, Formulário em XML puro no formato de String na formatação proposta pela API do MOIP
-  - Data, Um JSON estruturado pelo como no módulo "[data2xml]"
+  - Data, Um JSON estruturado como proposto pelo módulo "[data2xml]"
 
 
 Todo
