@@ -194,6 +194,14 @@ function Sender(){
 				var parser = new xml2js.Parser();
 
 				parser.parseString(chunck.toString(), function (err, result) {
+
+					if(err){
+						console.log('[MOIP_MODULE_ERROR]: ',err);
+						console.log('[MOIP_MODULE_RESULT]:',result);
+						options.callback(null); 
+						return;
+					}
+
 					var Resposta = result["ns1:EnviarInstrucaoUnicaResponse"]['Resposta'][0];
 				  if(options.callback){
 				  	if(typeof(options.callback) === 'function'){
