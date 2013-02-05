@@ -43,6 +43,7 @@ function Payment(payment){
 	var	payment = payment;
 
 	this.XML = null;
+	this.environment = payment.environment;
 
 	(function createPayment(){
 		if(payment.xml){ 
