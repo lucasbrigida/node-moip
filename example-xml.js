@@ -33,8 +33,12 @@ var moip = require("./moip");
 
     var Moip = new moip.Moip();
     Moip.send(payment, function(Resposta){ 
-			console.log(Resposta);
+	 console.log(Resposta);
+                //console.log(Resposta['ns1:EnviarInstrucaoUnicaResponse']['Resposta'][0]['Token'][0]);
 
-			if(Resposta)
-				console.log("Acesse https://desenvolvedor.moip.com.br/sandbox/Instrucao.do?token=" + Resposta.Token);
-		});
+                var resp = Resposta['ns1:EnviarInstrucaoUnicaResponse']['Resposta'][0];
+                if(resp){
+                        console.log("Acesse https://desenvolvedor.moip.com.br/sandbox/Instrucao.do?token=" + resp['Token'][0]);
+                }
+
+    });
