@@ -132,3 +132,6 @@ Conheça o [Moip]
 
   [Moip]: http://labs.moip.com.br/playground/
   [data2xml]: https://npmjs.org/package/data2xml
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/lucasbrigida/node-moip/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
