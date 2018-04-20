@@ -11,7 +11,7 @@ Instalar
 [![NPM](https://nodei.co/npm/node-moip.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/node-moip/)
 
 ```bash
-    npm install node-moip
+$ npm install node-moip
 ```
 
 Como usar (1ª Opção)
