@@ -1,5 +1,6 @@
 Node-Moip (Moip for Node JS)
 ----------------------------
+[![NPM](https://nodei.co/npm/node-moip.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/node-moip/)
 
 O módulo provê o envio de formulários de cobrança, utilizando a interface XML da API Moip.
 
