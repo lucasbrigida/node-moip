@@ -1,13 +1,18 @@
-Node-Moip (Moip for Node JS)
+
+Node-Moip (Moip for Node JS) 
 ----------------------------
-[![NPM](https://nodei.co/npm/node-moip.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/node-moip/)
+[![DOWNLOADS](https://img.shields.io/npm/dt/node-moip.svg?style=flat-square)](https://www.npmjs.com/package/node-moip)
+[![HITS](http://hits.dwyl.io/lucasbrigida/node-moip.svg)](https://www.npmjs.com/package/node-moip)
 
 O módulo provê o envio de formulários de cobrança, utilizando a interface XML da API Moip.
 
 Instalar
 --------
-    npm install node-moip
+[![NPM](https://nodei.co/npm/node-moip.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/node-moip/)
 
+```bash
+    npm install node-moip
+```
 
 Como usar (1ª Opção)
 --------------------
